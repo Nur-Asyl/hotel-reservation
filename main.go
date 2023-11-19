@@ -32,7 +32,7 @@ func main() {
 	apiv1 := app.Group("api/v1")
 
 	apiv1.Get("/user", userHandler.HandleGetUsers)
-	apiv1.Get("/user:id", userHandler.HandleGetUser)
+	apiv1.Get("/user/:id", userHandler.HandleGetUser)
 
 	app.Listen(*listenAddr)
 }

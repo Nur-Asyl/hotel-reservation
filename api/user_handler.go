@@ -2,7 +2,6 @@ package api
 
 import (
 	"context"
-	"log"
 
 	"github.com/Nur-Asyl/hotel-reservation/db"
 	"github.com/gofiber/fiber/v2"
@@ -23,7 +22,7 @@ func (h *UserHandler) HandleGetUser(c *fiber.Ctx) error {
 	ctx := context.Background()
 	user, err := h.userStore.GetUserByID(ctx, id)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	return c.JSON(user)
 }
